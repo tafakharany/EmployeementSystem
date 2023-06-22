@@ -8,7 +8,7 @@ Employer Registeration
   "mobileNumber": "01028313753",
   "userType": 2
 }
----------------------------------------
+----------------------------------------------------------------------
 Applicant Registertaion
 
 {
@@ -19,7 +19,7 @@ Applicant Registertaion
   "mobileNumber": "01552223458",
   "userType": 3
 }
-
+----------------------------------------------------------------------
 {
   "email": "h.Soliman@emp.io",
   "password": "123P@ssw0rd",
@@ -29,8 +29,22 @@ Applicant Registertaion
   "userType": 3
 }
 
+----------------------------------------------------------------------
+Employer Login
+{
+  "email": "Yasmine.elhadedy@PaySky.io",
+  "password": "123P@ssw0rd"
+}
+----------------------------------------------------------------------
+Applicant Login
 
-----------------------------------------
+{
+  "email": "applicant@emp.io",
+  "password": "123P@ssword",
+}
+
+----------------------------------------------------------------------
+Post Vacancies
 
 {
   "title": "Sr. dotnet Developer",
@@ -41,7 +55,7 @@ Applicant Registertaion
   "expiryDate": "2023-06-26T01:18:00.175Z"
 }
 
-
+----------------------------------------------------------------------
 
 {
   "title": "Sr. Java Developer",
@@ -53,16 +67,4 @@ Applicant Registertaion
 }
 
 
--------------------------------------------
-Employer Login
-{
-  "email": "Yasmine.elhadedy@PaySky.io",
-  "password": "123P@ssw0rd"
-}
------------------------------------------
-Applicant Login
 
-{
-  "email": "applicant@emp.io",
-  "password": "123P@ssword",
-}
