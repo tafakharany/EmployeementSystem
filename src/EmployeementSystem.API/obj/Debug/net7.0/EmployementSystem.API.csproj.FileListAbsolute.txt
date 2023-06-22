@@ -1,0 +1,7 @@
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.csproj.AssemblyReference.cache
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.AssemblyInfoInputs.cache
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.AssemblyInfo.cs
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.csproj.CoreCompileInputs.cache
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tahaa\source\repos\EmployeementSystem\EmployeementSystem.API\obj\Debug\net7.0\EmployementSystem.API.MvcApplicationPartsAssemblyInfo.cache

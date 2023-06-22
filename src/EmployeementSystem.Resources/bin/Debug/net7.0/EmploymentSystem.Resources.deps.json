@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "EmploymentSystem.Resources/1.0.0": {
+        "runtime": {
+          "EmploymentSystem.Resources.dll": {}
+        },
+        "resources": {
+          "ar/EmploymentSystem.Resources.resources.dll": {
+            "locale": "ar"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EmploymentSystem.Resources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
