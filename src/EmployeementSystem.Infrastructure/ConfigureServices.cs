@@ -1,33 +1,34 @@
 ﻿using EmploymentSystem.Application.Contracts;
-using EmploymentSystem.Infrastructure.Persistence;
 using EmploymentSystem.Infrastructure.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EmploymentSystem.Infrastructure.Extensions;
+using Serilog;
 
-namespace EmploymentSystem.Infrastructure;
-
-public static class ConfigureServices
+namespace EmploymentSystem.Infrastructure
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+    public static class ConfigureServices
     {
-
-        services.AddScoped<IIdentityService, IdentityService>();
-        services.AddScoped<IEmployerServices, EmployerService>();
-        services.AddScoped<IApplicantServices, ApplicantServices>();
-
-        //Add DbContext using SQL server 
-        var connectionString = configuration.GetConnectionString("Default");
-
-        services.AddDbContext<ApplicationDbContext>(options =>
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
-            options.UseSqlServer(connectionString);
-        });
+            var connectionString = configuration.GetConnectionString("Default");
+            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IEmployerServices, EmployerService>();
+            services.AddScoped<IApplicantServices, ApplicantServices>();
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                Log.Logger.Error("Services Error: connection string is null, hangFire and dbContext not set");
+                return services;
+            }
+            services.AddDbContextServices(connectionString);
+            services.AddHangFireService(connectionString);
 
-        services.AddScoped<Application.Contracts.IApplicationDbContext>(
-            provider => provider.GetRequiredService<ApplicationDbContext>());
-
-        return services;
+            return services;
+        }
     }
 }

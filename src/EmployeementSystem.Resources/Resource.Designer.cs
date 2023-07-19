@@ -169,6 +169,15 @@ namespace EmploymentSystem.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to you have no privilege to apply for more than one vacancy per day..
+        /// </summary>
+        public static string TooManyRequests {
+            get {
+                return ResourceManager.GetString("TooManyRequests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User not registerd in the system, Go to Register .
         /// </summary>
         public static string UserNotFound {
