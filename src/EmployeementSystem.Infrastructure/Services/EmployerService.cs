@@ -7,6 +7,7 @@ using EmploymentSystem.Application.DTOs.Response.ApplicantDTOs;
 using EmploymentSystem.Domain.Entities;
 using EmploymentSystem.Infrastructure.Persistence;
 using EmploymentSystem.Resources;
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -17,10 +18,7 @@ public class EmployerService : BaseService<EmployerService>, IEmployerServices
     //private readonly ApplicationDbContext _context;
     public EmployerService(IMapper mapper,
         ILogger<EmployerService> logger,
-        ApplicationDbContext context) : base(mapper, logger, context)
-    {
-        //_context = context;
-    }
+        ApplicationDbContext context) : base(mapper, logger, context){}
 
     public async Task<ResponseDto> CreateVacancy(CreateVacancyRequestDto vacancyRequest)
     {
@@ -29,8 +27,10 @@ public class EmployerService : BaseService<EmployerService>, IEmployerServices
             ResponseCode = ResponseCodes.FailedToProcess,
             ResponseMessage = Resource.Failed
         };
+
         try
         {
+            RecurringJob.AddOrUpdate<IVacancyService>(ser => ser.UpdateExpiredVacancies(), Cron.Minutely);//"0 0/2 0 ? * * *");
             //var affectedRows = 0;
             var vacancy = Mapper.Map<Vacancy>(vacancyRequest);
             var result = await Context.Vacancies.AddAsync(vacancy);

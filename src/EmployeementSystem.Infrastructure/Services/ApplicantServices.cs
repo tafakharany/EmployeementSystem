@@ -14,6 +14,7 @@ using EmploymentSystem.Resources;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
+// ReSharper disable All
 
 namespace EmploymentSystem.Infrastructure.Services;
 
@@ -34,10 +35,11 @@ public class ApplicantServices : BaseService<ApplicantServices>, IApplicantServi
             ResponseMessage = Resource.NotFound,
             ResponseCode = ResponseCodes.NotFound
         };
+
         try
         {
             var vacanciesList = await Context.Vacancies
-                .Where(x => x.IsActive)
+                .Where(x => x.IsActive && x.ExpiryDate > DateTime.Today)
                 .WhereIf(!string.IsNullOrEmpty(searchRequest.Title) && !string.IsNullOrWhiteSpace(searchRequest.Title),
                     x => x.Title.Equals(searchRequest.Title))
                 .WhereIf(!string.IsNullOrEmpty(searchRequest.VacancyNumber) && !string.IsNullOrWhiteSpace(searchRequest.Title),
@@ -69,7 +71,7 @@ public class ApplicantServices : BaseService<ApplicantServices>, IApplicantServi
         await using var transaction = await Context.Transaction;
         try
         {
-            
+
             if (!await HasAppliedToday(applicantId))
             {
                 var application = new Domain.Entities.Application(vacancyId);
@@ -134,12 +136,6 @@ public class ApplicantServices : BaseService<ApplicantServices>, IApplicantServi
     }
     private async Task<bool> HasAppliedToday(int applicantId)
     {
-
-        //var hasAppliedTodayQueryable = Context.ApplicantsPerVacancy
-        //    .Where(ap => ap.ApplicantId == applicantId && ap.AppliedAt.Day.Equals(DateTime.Now.Day));
-
-        //var hasAppliedToday = await hasAppliedTodayQueryable.ToListAsync();
-
         var hasAppliedTodayQueryable = Context.ApplicantApplications
             .Where(ap => ap.ApplicantId == applicantId)
             .OrderByDescending(x => x.LastAppliedDateTime);
@@ -152,8 +148,6 @@ public class ApplicantServices : BaseService<ApplicantServices>, IApplicantServi
 
         return false;
     }
-
-
     #endregion
 
 }

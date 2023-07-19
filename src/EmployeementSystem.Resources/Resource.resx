@@ -153,6 +153,9 @@
   <data name="Sucess" xml:space="preserve">
     <value>Preccess successeded</value>
   </data>
+  <data name="TooManyRequests" xml:space="preserve">
+    <value>you have no privilege to apply for more than one vacancy per day.</value>
+  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>User not registerd in the system, Go to Register </value>
   </data>

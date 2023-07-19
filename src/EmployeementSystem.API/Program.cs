@@ -1,11 +1,7 @@
 using EmploymentSystem.API.ServiceExtensions;
-using EmploymentSystem.API.Utils;
 using EmploymentSystem.Application;
-using EmploymentSystem.Domain.lookups;
 using EmploymentSystem.Infrastructure;
-using EmploymentSystem.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Hangfire;
 using Serilog;
 
 
@@ -29,10 +25,10 @@ try
     services.AddIdentityService(builder.Configuration);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerWithAuthorization();
-    
+    services.AddRateLimiterService(configuration);
     var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
     builder.Host.UseSerilog(logger);
-    
+
     app = builder.Build();
 
     logger.Information($"EmploymentSystem API Starting Up! in {environment} Environment");
@@ -53,10 +49,11 @@ if (app.Environment.IsDevelopment() || app.Environment.IsStaging() || app.Enviro
     app.UseSwaggerUI();
 }
 
+
 if (app.Environment.IsProduction())
     app.UseHttpsRedirection();
 
-
+app.UseRateLimiter();
 app.UseRequestLocalization();
 
 app.UseSerilogRequestLogging();
@@ -65,5 +62,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+//app.UseHangfireDashboard(options =>
+//{
+//    options.Username("Taha");
+//    options.Password("123P@$$w0rd");
+//});
+app.UseHangfireDashboard();
+app.MapHangfireDashboard();
 
 app.Run();

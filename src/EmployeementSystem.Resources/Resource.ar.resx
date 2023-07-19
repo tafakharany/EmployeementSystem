@@ -150,6 +150,9 @@
   <data name="Sucess" xml:space="preserve">
     <value>نجحت العملية</value>
   </data>
+  <data name="TooManyRequests" xml:space="preserve">
+    <value>ليس لديك صلاحية التقديم لأكثر من وظيفة في اليوم</value>
+  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>هذا المستخدم غير مسجل بالنظام</value>
   </data>
