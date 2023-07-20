@@ -57,3 +57,4 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
+/src/EmployeementSystem.API/Log/*

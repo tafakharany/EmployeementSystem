@@ -30,7 +30,7 @@ public class EmployerService : BaseService<EmployerService>, IEmployerServices
 
         try
         {
-            RecurringJob.AddOrUpdate<IVacancyService>(ser => ser.UpdateExpiredVacancies(), Cron.Minutely);//"0 0/2 0 ? * * *");
+            RecurringJob.AddOrUpdate<IVacancyService>(ser => ser.UpdateExpiredVacancies(), Cron.Hourly);//"0 0/2 0 ? * * *");
             //var affectedRows = 0;
             var vacancy = Mapper.Map<Vacancy>(vacancyRequest);
             var result = await Context.Vacancies.AddAsync(vacancy);
