@@ -57,4 +57,4 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
-/src/EmployeementSystem.API/Log/log20230621.json
+/src/EmployeementSystem.API/Log/*

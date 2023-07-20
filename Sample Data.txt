@@ -1,0 +1,70 @@
+Employer Registeration
+
+{
+  "email": "Yasmine.elhadedy@PaySky.io",
+  "password": "123P@ssw0rd",
+  "firstName": "Yasmine",
+  "lastName": "Elhadedy",
+  "mobileNumber": "01028313753",
+  "userType": 2
+}
+----------------------------------------------------------------------
+Applicant Registertaion
+
+{
+  "email": "applicant@emp.io",
+  "password": "123P@ssw0rd",
+  "firstName": "Khaled",
+  "lastName": "Ali",
+  "mobileNumber": "01552223458",
+  "userType": 3
+}
+----------------------------------------------------------------------
+{
+  "email": "h.Soliman@emp.io",
+  "password": "123P@ssw0rd",
+  "firstName": "Hassan",
+  "lastName": "Soliman",
+  "mobileNumber": "01102223779",
+  "userType": 3
+}
+
+----------------------------------------------------------------------
+Employer Login
+{
+  "email": "Yasmine.elhadedy@PaySky.io",
+  "password": "123P@ssw0rd"
+}
+----------------------------------------------------------------------
+Applicant Login
+
+{
+  "email": "applicant@emp.io",
+  "password": "123P@ssword",
+}
+
+----------------------------------------------------------------------
+Post Vacancies
+
+{
+  "title": "Sr. dotnet Developer",
+  "vacancyNumber":"core202306"
+  "maxApplications": 15,
+  "isActive": true,
+  "description": "Good understanding of Dotnet core, SOLID principles ",
+  "expiryDate": "2023-06-26T01:18:00.175Z"
+}
+
+----------------------------------------------------------------------
+
+{
+  "title": "Sr. Java Developer",
+  "vacancyNumber":"J202306"
+  "maxApplications": 15,
+  "isActive": true,
+  "description": "Good understanding of Java 8, SOLID principles",
+  "expiryDate": "2023-06-26T01:18:00.175Z"
+}
+
+
+
